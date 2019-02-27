@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SearchinfoService } from '../service/searchinfo.service';
-import { Info } from '../domain/info.model';
+// import { Info } from '../domain/info.model';
 
 @Component({
   selector: 'app-searchcard',
@@ -11,20 +11,14 @@ import { Info } from '../domain/info.model';
 export class SearchcardComponent  {
   title :any;
   info;
-  test;
 
   constructor(private search:SearchinfoService ) { }
 
-  ngOnInit() {
-
-    console.log("ijbv");
-    
-    this.test=this.search.getAll().subscribe((data)=>{
+  ngOnInit() {   
+    this.search.getAll().subscribe((data)=>{
+      console.log(data);
       this.info=data,
     console.log("OnInit")});
   }
-  // getall(){
-  
-  // }
 
 }

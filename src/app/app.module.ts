@@ -63,6 +63,7 @@ import { UploadService } from './service/upload.service';
 import { HeaderComponent } from './header/header.component';
 import { SearchcardComponent } from './searchcard/searchcard.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -137,6 +138,10 @@ import { PaginatorComponent } from './paginator/paginator.component';
     WavesModule,
     MDBBootstrapModule,
     HttpClientModule,
+    AppRoutingModule,
+    RouterModule.forRoot([
+      {path : 'searchinfo', component: SearchcardComponent}
+    ])
   ],
   providers: [TokenService,SearchinfoService,
               AuthService,UploadService],

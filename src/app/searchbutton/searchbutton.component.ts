@@ -1,3 +1,4 @@
+import { SearchinfoService } from './../service/searchinfo.service';
 import { Component, Injector, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 // @angular/platform-browser Supports delivery of Angular apps on different supported browsers.
@@ -5,7 +6,7 @@ import { isPlatformServer } from '@angular/common';
 //makeStateKey is a function that create a StateKey<T> that can be used to store value of type T with TransferState.
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 const configKey = makeStateKey('CONFIG');
 declare var webkitSpeechRecognition: any;
 
@@ -17,6 +18,7 @@ declare var webkitSpeechRecognition: any;
 export class SearchbuttonComponent{
 
   public title : string;
+  info;
   // viewChild- Property decorator that configures a view query
   // The change detector looks for the first element or the directive matching
   // the selector in the view DOM. If the view DOM changes, and a new child 
@@ -26,6 +28,8 @@ export class SearchbuttonComponent{
   constructor(
     private injector: Injector,
     private state : TransferState,
+    private search : SearchinfoService,
+    private _route: ActivatedRoute, private router: Router,
     @Inject(PLATFORM_ID) private platformid: Object,private route:Router
   ){
     this.title = 'Voice Search POC';
@@ -77,6 +81,9 @@ google(){
   this.route.navigateByUrl("https://www.google.com/search")
 }
 
+getdata() {   
+  this.router.navigate(['/searchinfo']);
+}
 }
 
 
