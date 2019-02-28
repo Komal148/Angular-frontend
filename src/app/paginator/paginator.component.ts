@@ -13,7 +13,7 @@ export class PaginatorComponent implements OnInit {
   }
   
   length = 60;
-  pageSize = 4;
+  pageSize = 2;
 
 
   // MatPaginator Output
